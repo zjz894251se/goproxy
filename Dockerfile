@@ -9,5 +9,4 @@ COPY --from=builder /go/src/goproxy/proxy /
 RUN mkdir /data
 VOLUME ["/data"]
 EXPOSE 33080
-RUN /sbin/ip route|awk '/default/ { print  $3,"\tdockerhost" }' >> /etc/hosts
 CMD /proxy ${OPTS}
